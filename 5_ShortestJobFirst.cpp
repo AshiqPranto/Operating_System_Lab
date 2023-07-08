@@ -59,7 +59,6 @@ int main()
         printf("%d\t",grant_chart[i].first);
     }
 
-
     for(int i = 0;i<n;i++)
     {
         int pid = grant_chart[i].second;

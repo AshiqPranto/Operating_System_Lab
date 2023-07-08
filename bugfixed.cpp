@@ -9,6 +9,10 @@ vector<int>seq;
 
 bool isSafety(){
     vector <int> finish(n,0);
+    for (int i=0;i<m;i++){
+            // cin>>available[i];
+            work[i] = available[i];
+        }
     seq.clear();
     int it = 0;
     while (it<n){
@@ -45,7 +49,16 @@ bool resourceReq(int pn){
         need[pn][i]-=req[i];
     }
 
-    if (isSafety()) return true;
+    if (isSafety())
+    {
+        for(int i = 0;i<n;i++)
+        {
+            for(int j = 0;j<m;j++)
+                cout<<need[i][j];
+            cout<<endl;
+        }
+        return true;
+    }
     else{
         for (i=0;i<n;i++){
             available[i]+=req[i];
@@ -57,7 +70,7 @@ bool resourceReq(int pn){
 }
 
 int main(){
-    freopen("BankersAlgoInput.txt","r",stdin);
+    freopen("input.txt","r",stdin);
     cout<<"Enter the number of process"<<endl;
     cin>>n;
     cout<<"Enter the number of resourses"<<endl;
@@ -81,6 +94,14 @@ int main(){
             work[i] = available[i];
         }
         if (isSafety()){
+
+            cout<<"sequence before request:\n";
+            for(int i = 0;i<seq.size();i++)
+            {
+                cout<<seq[i]<<" ";
+            }
+            cout<<endl;
+
             int test = 1;
             while (test--){
                 for (int i=0;i<m;i++){
