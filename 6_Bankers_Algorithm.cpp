@@ -49,7 +49,7 @@ bool resourceReq()
         allocation[pn][i] += req[i];
         need[pn][i] -= req[i];
     }
-    if(isSafeState())
+    if(isSafeState()) 
     {
         return true;
     }
